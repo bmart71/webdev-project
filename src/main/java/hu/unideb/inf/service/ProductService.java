@@ -8,4 +8,5 @@ public interface ProductService {
     List<ProductDTO> findAll();
     ProductDTO findById(Integer id);
     ProductDTO saveProduct(ProductDTO productDTO);
+    void doDeleteProduct(Integer id);
 }

@@ -44,4 +44,9 @@ public class ProjectController {
     public ResponseEntity<List<ProductDTO>> getAllProduct(){
         return new ResponseEntity<List<ProductDTO>>(productService.findAll(), HttpStatus.OK);
     }
+    @GetMapping("/deletepoductbyid")
+    public ResponseEntity<List<ProductDTO>> deleteProductById(@RequestParam int id){
+        productService.doDeleteProduct(id);
+        return new ResponseEntity<List<ProductDTO>>(productService.findAll(), HttpStatus.OK);
+    }
 }

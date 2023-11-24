@@ -40,4 +40,9 @@ public class ProductServiceImpl implements ProductService {
 
         return new ProductDTO(e.getId(),e.getName(),e.getType(),e.getAmountAvailable());
     }
+
+    @Override
+    public void doDeleteProduct(Integer id) {
+        productRepository.deleteById(id);
+    }
 }
