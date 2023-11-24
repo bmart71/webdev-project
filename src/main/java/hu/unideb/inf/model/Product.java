@@ -15,6 +15,9 @@ public class Product {
     private String type;
     @Column(name = "AMOUNT_AVAILABLE")
     private int amountAvailable;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PRODUCER_ID")
+    private Producer producer;
 
     public Product() {
     }
@@ -28,6 +31,14 @@ public class Product {
 
     public int getId() {
         return id;
+    }
+
+    public Producer getProducer() {
+        return producer;
+    }
+
+    public void setProducer(Producer producer) {
+        this.producer = producer;
     }
 
     public void setId(int id) {
