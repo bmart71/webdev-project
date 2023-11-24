@@ -26,4 +26,18 @@ public class ProductServiceImpl implements ProductService {
 
         return productDTOS;
     }
+
+    @Override
+    public ProductDTO findById(Integer id) {
+        Product e = productRepository.getReferenceById(id);
+        return new ProductDTO(e.getId(), e.getName(), e.getType(), e.getAmountAvailable());
+    }
+
+    @Override
+    public ProductDTO saveProduct(ProductDTO pDTO){
+        Product e = new Product(pDTO.getId(), pDTO.getName(), pDTO.getType(), pDTO.getAmountAvailable());
+        e = productRepository.save(e);
+
+        return new ProductDTO(e.getId(),e.getName(),e.getType(),e.getAmountAvailable());
+    }
 }
