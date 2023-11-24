@@ -9,4 +9,5 @@ public interface ProductService {
     ProductDTO findById(Integer id);
     ProductDTO saveProduct(ProductDTO productDTO);
     void doDeleteProduct(Integer id);
+    ProductDTO editNameById(Integer id, String name);
 }

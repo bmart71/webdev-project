@@ -15,6 +15,10 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductRepository productRepository;
 
+    /**
+     * Fetches all {@linkplain ProductDTO}s currently in memory.
+     * @return {@linkplain List<ProductDTO>}
+     */
     @Override
     public List<ProductDTO> findAll(){
         List<Product> products = productRepository.findAll();
@@ -44,5 +48,12 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void doDeleteProduct(Integer id) {
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public ProductDTO editNameById(Integer id, String name) {
+        Product e = productRepository.getReferenceById(id);
+        e.setName(name);
+        return new ProductDTO(e.getId(), e.getName(), e.getType(), e.getAmountAvailable());
     }
 }

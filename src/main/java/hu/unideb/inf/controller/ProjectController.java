@@ -49,4 +49,9 @@ public class ProjectController {
         productService.doDeleteProduct(id);
         return new ResponseEntity<List<ProductDTO>>(productService.findAll(), HttpStatus.OK);
     }
+    @GetMapping("/renameproduct")
+    public ResponseEntity<List<ProductDTO>> renameProduct(@RequestParam int id, @RequestParam String name){
+        productService.editNameById(id, name);
+        return new ResponseEntity<List<ProductDTO>>(productService.findAll(), HttpStatus.OK);
+    }
 }
