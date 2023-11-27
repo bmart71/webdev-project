@@ -1,11 +1,12 @@
 package hu.unideb.inf.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -15,8 +16,8 @@ public class Product {
     private String type;
     @Column(name = "AMOUNT_AVAILABLE")
     private int amountAvailable;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "PRODUCER_ID")
+    @ManyToOne(/*cascade = CascadeType.ALL*/)
+    //@JoinColumn(name = "PRODUCER_ID")
     private Producer producer;
 
     public Product() {

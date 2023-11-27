@@ -1,11 +1,12 @@
 package hu.unideb.inf.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "PRODUCER")
-public class Producer {
+public class Producer implements Serializable {
     @Id
     @GeneratedValue
     private int producerId;
